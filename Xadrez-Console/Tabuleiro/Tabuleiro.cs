@@ -22,7 +22,7 @@
         }
         public bool existePeca(Posicao pos)
         {
-            validarPosicacao(pos);
+            validarPosicao(pos);
             return peca(pos) != null; 
         }
         public void colocarPeca(Peca p, Posicao pos)
@@ -53,7 +53,7 @@
             }
             return true;
         }
-        public void validarPosicacao(Posicao pos)
+        public void validarPosicao(Posicao pos)
         {
             if (!posicaoValida(pos))
             {
