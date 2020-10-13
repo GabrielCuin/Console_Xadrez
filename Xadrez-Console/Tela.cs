@@ -12,10 +12,18 @@ namespace Xadrez_Console
             Console.WriteLine();
             imprimirPecasCapturadas(partida);
             Console.WriteLine("Turno: " + partida.turno);
-            Console.WriteLine("Aguardando a jogada: " + partida.JogadorAtual);
-            if (partida.xeque == true)
+            if (!partida.terminada)
             {
-                Console.WriteLine("XEQUE!");
+                Console.WriteLine("Aguardando a jogada: " + partida.JogadorAtual);
+                if (partida.xeque == true)
+                {
+                    Console.WriteLine("XEQUE!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("XEQUEMATE!");
+                Console.WriteLine("Vencedor:" + partida.JogadorAtual);
             }
         }
 
@@ -57,7 +65,7 @@ namespace Xadrez_Console
             }
             Console.WriteLine("  a b c d e f g h");
         }
-        public static void ImprimirTabuleiro(Tabuleiro tab , bool[,] posicoesPossiveis)
+        public static void ImprimirTabuleiro(Tabuleiro tab, bool[,] posicoesPossiveis)
         {
             ConsoleColor FundoOriginal = Console.BackgroundColor;
             ConsoleColor FundoAlterado = ConsoleColor.DarkGray;
@@ -67,7 +75,7 @@ namespace Xadrez_Console
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.colunas; j++)
                 {
-                    if (posicoesPossiveis[i,j])
+                    if (posicoesPossiveis[i, j])
                     {
                         Console.BackgroundColor = FundoAlterado;
                     }
